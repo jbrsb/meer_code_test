@@ -1,0 +1,17 @@
+name: test
+
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  clean-artefacts:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.number }}
+    steps:
+    - name: Delete PR Docker images
+      uses: snok/container-retention-policy@v2
+      with:
+        account-type: org
