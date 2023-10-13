@@ -1,0 +1,18 @@
+name: test
+
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  test:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.number }}
+    steps:
+    - name: Delete PR Docker images
+      run: |
+          echo '::echo::on'
+          echo "trigger pr 1: "${{ github.event.number }}
+          echo "trigger pr 2: "${{ PR_NUMBER }}
