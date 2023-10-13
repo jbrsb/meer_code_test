@@ -15,4 +15,4 @@ jobs:
       run: |
           echo '::echo::on'
           echo "trigger pr 1: "${{ github.event.number }}
-          echo "trigger pr 2: "${{ PR_NUMBER }}
+          echo "trigger pr 2: "${{ env.PR_NUMBER }}
