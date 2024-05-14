@@ -17,6 +17,6 @@ jobs:
         run: |
           echo '::echo::on'
           script="Dockerfile"
-          if [ -e "script" ]; then
+          if [ -e "$script" ]; then
             echo "lol"
           fi
