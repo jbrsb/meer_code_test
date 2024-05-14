@@ -1,0 +1,24 @@
+
+name: Release
+
+on:
+  push:
+
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: ☁️ Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Build migrate job image if needed
+        shell: bash
+        run: |
+          echo '::echo::on'
+          script="Dockerfile"
+          if [ -e "script" ]; then
+            echo "lol"
+          fi
